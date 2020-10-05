@@ -1,0 +1,21 @@
+{
+  "scripts": {
+    "dev": "parcel index.pug",
+    "build": "rm ./docs/*; parcel build index.pug --out-dir ./docs/ --public-url ./"
+  },
+  "name": "html",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "pug": "^3.0.0",
+    "sass": "^1.26.11",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "@types/jquery": "^3.5.1",
+    "@types/swiper": "^5.4.0",
+    "jquery": "^3.5.1",
+    "swiper": "^6.3.2"
+  }
+}
