@@ -236,7 +236,11 @@ body {
     transition: opacity 0.2s ease-out;
     background-color: $color-base02;
     color: $color-white;
+    font-size: 20px;
 
+    @include large {
+      font-size: 16px;
+    }
     @include border;
     &:hover,
     :focus {
@@ -271,7 +275,7 @@ body {
   padding: 1em 1.5em;
   width: 90vw;
   max-width: $contentMaxWidth;
-  height: 90vh;
+  height: 70vh;
   transform: translate(-50%, -50%);
   background-color: $color-white;
 
