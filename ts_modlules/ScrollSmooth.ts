@@ -9,7 +9,7 @@ export default class ScrollSmooth {
   }
 
   private bindEvent() {
-    this.$a.on('click', this.scroll.bind(this))
+    this.$a.on('click', this.scroll)
   }
 
   private scroll = (e) => {
