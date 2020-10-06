@@ -8,7 +8,7 @@ export default class SetIntersectionObserver {
     this.init()
   }
 
-  init() {
+  private init() {
     const options = {
       root: null,
       rootMargin: `0% 0% ${this._rootMarginBottom} 0%`,
@@ -21,7 +21,7 @@ export default class SetIntersectionObserver {
     })
   }
 
-  callback = (entries, observer)=> {
+  private callback = (entries, observer)=> {
     entries.forEach((entry) => {
       const elem = entry.target
       if (entry.isIntersecting) {
