@@ -3,7 +3,7 @@ export default class Polyfill {
     this.setForEach()
   }
 
-  setForEach() {
+  private setForEach() {
     if ('NodeList' in window && !NodeList.prototype.forEach) {
       NodeList.prototype.forEach = function (callback, thisArg) {
         thisArg = thisArg || window

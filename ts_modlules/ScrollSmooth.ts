@@ -1,25 +1,24 @@
 import $ from 'jquery'
 
-const $a = $('a[href^="#"]')
-const $header = $('.header')
-const $htmlBody = $('body, html')
-
 export default class ScrollSmooth {
+  private $a = $('a[href^="#"]')
+  private $htmlBody = $('body, html')
+
   constructor() {
     this.bindEvent()
   }
 
-  bindEvent() {
-    $a.on('click', this.scroll)
+  private bindEvent() {
+    this.$a.on('click', this.scroll.bind(this))
   }
 
-  scroll(e) {
-    e.preventDefault();
-    const adjust = $header.height() + 10;
-    const speed = 400;
-    const href= $(this).attr('href');
-    const target = $(href == '#' || href == '' ? 'html' : href);
-    const position = target.offset().top - adjust;
-    $htmlBody.animate({scrollTop: position}, speed, 'swing');
+  private scroll = (e) => {
+    e.preventDefault()
+    const adjust = $('.header').outerHeight() + 10 // headerの高さは都度取得
+    const speed = 400
+    const href = e.target.getAttribute('href')
+    const target = $(href == '#' || href == '' ? 'html' : href)
+    const position = target.offset().top - adjust
+    this.$htmlBody.animate({ scrollTop: position }, speed, 'swing')
   }
 }

@@ -1,30 +1,30 @@
-const body = document.querySelector('body')
-const header = document.querySelector('.js-header')
-const humburger = document.querySelector('.js-hamburger')
-const headerNav = document.querySelector('.js-headerNav')
-let winScrollTop: number
-
 export default class Hamburger {
+  private body = document.querySelector('body')
+  private header = document.querySelector('.js-header')
+  private humburger = document.querySelector('.js-hamburger')
+  private headerNav = document.querySelector('.js-headerNav')
+  private winScrollTop: number
+
   constructor() {
     this.bindEvent()
   }
 
-  bindEvent() {
-    humburger.addEventListener('click', this.toggle)
-    headerNav.addEventListener('click', this.toggle)
+  private bindEvent() {
+    this.humburger.addEventListener('click', this.toggle)
+    this.headerNav.addEventListener('click', this.toggle)
   }
 
-  toggle() {
-    if (!header.classList.contains('is-open')) {
-      winScrollTop = window.scrollY
-      header.classList.add('is-open')
-      body.classList.add('is-fixed')
-      body.style.top = `-${winScrollTop}px`
+  private toggle = ()=> {
+    if (!this.header.classList.contains('is-open')) {
+      this.winScrollTop = window.scrollY
+      this.header.classList.add('is-open')
+      this.body.classList.add('is-fixed')
+      this.body.style.top = `-${this.winScrollTop}px`
     } else {
-      header.classList.remove('is-open')
-      body.classList.remove('is-fixed')
-      body.style.top = ''
-      window.scrollTo(0, winScrollTop)
+      this.header.classList.remove('is-open')
+      this.body.classList.remove('is-fixed')
+      this.body.style.top = ''
+      window.scrollTo(0, this.winScrollTop)
     }
   }
 

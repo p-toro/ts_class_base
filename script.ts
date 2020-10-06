@@ -7,21 +7,17 @@ import SetIntersectionObserver from './ts_modlules/SetIntersectionObserver'
 import Accordion from './ts_modlules/Accordion'
 import Modal from './ts_modlules/Modal'
 
-const mql = window.matchMedia('screen and (max-width: 767px)')
-
 document.addEventListener('DOMContentLoaded', () => {
-  const main = new Main()
-})
+  const mql = window.matchMedia('screen and (max-width: 767px)')
 
-class Main {
-  constructor() {
-    this.init()
-    this.initSP()
-    this.initTBPC()
+  const init = ()=> {
+    initCommon()
+    initSP()
+    initTBBC()
   }
 
   // SP,TB,PC共通の初期化
-  init() {
+  const initCommon = ()=> {
     const polyfill = new Polyfill()
     const reloadMatchMedia = new ReloadMatchMedia()
     const scrollSmooth = new ScrollSmooth()
@@ -32,16 +28,18 @@ class Main {
   }
 
   // SPのみ初期化
-  initSP() {
+  const initSP = ()=> {
     if (mql.matches) {
       const humburger = new Humburger()
     }
   }
 
   // TB,PCのみ初期化
-  initTBPC() {
+  const initTBBC= ()=> {
     if (!mql.matches) {
 
     }
   }
-}
+
+  init()
+})

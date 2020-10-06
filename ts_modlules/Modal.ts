@@ -1,32 +1,32 @@
-const body = document.querySelector('body')
-const modal = document.querySelector('.js-modal')
-const openModal = document.querySelector('.js-openModal')
-const modalBg = document.querySelector('.js-modalBg')
-const closeBtn = document.querySelector('.js-closeBtn')
-let winScrollTop: number
-
 export default class Modal {
+  private body = document.querySelector('body')
+  private modal = document.querySelector('.js-modal')
+  private jsOpenModal = document.querySelector('.js-openModal')
+  private modalBg = document.querySelector('.js-modalBg')
+  private closeBtn = document.querySelector('.js-closeBtn')
+  private winScrollTop: number
+
   constructor() {
     this.bindEvent()
   }
 
-  bindEvent() {
-    openModal.addEventListener('click', this.openModal)
-    modalBg.addEventListener('click', this.closeModal)
-    closeBtn.addEventListener('click', this.closeModal)
+  private bindEvent() {
+    this.jsOpenModal.addEventListener('click', this.openModal)
+    this.modalBg.addEventListener('click', this.closeModal)
+    this.closeBtn.addEventListener('click', this.closeModal)
   }
 
-  openModal() {
-    winScrollTop = window.scrollY
-    modal.classList.add('is-open')
-    body.classList.add('is-fixed')
-    body.style.top = `-${winScrollTop}px`
+  private openModal = ()=> {
+    this.winScrollTop = window.scrollY
+    this.modal.classList.add('is-open')
+    this.body.classList.add('is-fixed')
+    this.body.style.top = `-${this.winScrollTop}px`
   }
 
-  closeModal() {
-    modal.classList.remove('is-open')
-    body.classList.remove('is-fixed')
-    body.style.top = ''
-    window.scrollTo(0, winScrollTop)
+  private closeModal = ()=> {
+    this.modal.classList.remove('is-open')
+    this.body.classList.remove('is-fixed')
+    this.body.style.top = ''
+    window.scrollTo(0, this.winScrollTop)
   }
 }

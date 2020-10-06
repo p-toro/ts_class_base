@@ -1,17 +1,17 @@
 import $ from 'jquery'
 
-const $obj = $('.js-accordion > dt')
-
 export default class Accordion {
+  private $obj = $('.js-accordion > dt')
+
   constructor() {
     this.bindEvent()
   }
 
-  bindEvent() {
-    $obj.on('click', this.toggle)
+  private bindEvent() {
+    this.$obj.on('click', this.toggle)
   }
 
-  toggle() {
+  private toggle() {
     $(this).next().slideToggle()
   }
 }

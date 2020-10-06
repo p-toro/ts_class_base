@@ -1,16 +1,16 @@
 import Swiper from 'swiper/bundle'
 import 'swiper/swiper-bundle.css'
 
-let _objClass: string
-
 export default class Carousel {
+  private _objClass: string
+
   constructor(objClass) {
-    _objClass = objClass
+    this._objClass = objClass
     this.init()
   }
 
-  init() {
-    const swiper = new Swiper(_objClass, {
+  private init() {
+    const swiper = new Swiper(this._objClass, {
       loop: true,
       pagination: {
         el: '.swiper-pagination',
