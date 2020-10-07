@@ -6,7 +6,7 @@ export default class ReloadMacthMedia {
   }
 
   private init() {
-    this.mql.addListener(this.checkBreakPoint) // TODO: 動作はするがTSではaddListenerは非推奨
+    this.mql.addEventListener('change', this.checkBreakPoint)
   }
 
   private checkBreakPoint = ()=> {
